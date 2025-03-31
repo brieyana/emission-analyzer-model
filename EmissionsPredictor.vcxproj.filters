@@ -1,0 +1,132 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hh;hpp;hxx;hm;inl;inc;xsd</Extensions>
+    </Filter>
+    <Filter Include="Resource Files">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav</Extensions>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="CompactClassificationModel.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="CompactClassificationTree.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="CompactEnsemble.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="minOrMax.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="predictOneWithCache.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="predict_emissions.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="predict_emissions_data.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="predict_emissions_initialize.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="predict_emissions_terminate.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="rtGetInf.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="rtGetNaN.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="rt_nonfinite.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="updateCache.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="examples\main.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="interface\_coder_predict_emissions_api.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="interface\_coder_predict_emissions_info.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="interface\_coder_predict_emissions_mex.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="CompactClassificationModel.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="CompactClassificationTree.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="CompactEnsemble.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="minOrMax.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="predictOneWithCache.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="predict_emissions.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="predict_emissions_data.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="predict_emissions_initialize.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="predict_emissions_internal_types.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="predict_emissions_terminate.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="predict_emissions_types.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="rtGetInf.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="rtGetNaN.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="rtwtypes.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="rt_nonfinite.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="updateCache.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="examples\main.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="interface\_coder_predict_emissions_api.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="interface\_coder_predict_emissions_info.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="interface\_coder_predict_emissions_mex.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+  </ItemGroup>
+</Project>

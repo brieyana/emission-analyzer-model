@@ -1,0 +1,15 @@
+﻿################################################################################
+# This .gitignore file was automatically created by Microsoft(R) Visual Studio.
+################################################################################
+
+/.vs/EmissionsPredictor
+/Emission.6745C429/x64/Release
+/examples
+/html
+/interface
+/x64/Release
+*.mat
+*.dmr
+*.rsp
+*.mk
+*.tmw
