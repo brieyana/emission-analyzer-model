@@ -13,3 +13,4 @@
 *.rsp
 *.mk
 *.tmw
+/build
