@@ -15,7 +15,6 @@
 #include "predict_emissions_data.h"
 #include "predict_emissions_types.h"
 #include "rt_nonfinite.h"
-#include "rt_nonfinite.h"
 
 /* Function Definitions */
 void c_CompactClassificationModel_ma(const int obj_ClassNamesLength[4],

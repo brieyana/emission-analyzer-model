@@ -14,17 +14,18 @@
 
 /* Include files */
 #include "rtwtypes.h"
+#include <math.h>
 
 #ifdef __cplusplus
 extern "C" {
 #endif
 
-extern real_T rtInf;
-extern real_T rtMinusInf;
-extern real_T rtNaN;
-extern real32_T rtInfF;
-extern real32_T rtMinusInfF;
-extern real32_T rtNaNF;
+#define rtNaN (real_T) NAN;
+#define rtInf (real_T) INFINITY;
+#define rtMinusInf -(real_T)INFINITY;
+#define rtNaNF (real32_T) NAN;
+#define rtInfF (real32_T) INFINITY;
+#define rtMinusInfF -(real32_T)INFINITY;
 
 extern boolean_T rtIsInf(real_T value);
 extern boolean_T rtIsInfF(real32_T value);

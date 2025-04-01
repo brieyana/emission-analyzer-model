@@ -12,7 +12,6 @@
 /* Include files */
 #include "minOrMax.h"
 #include "rt_nonfinite.h"
-#include "rt_nonfinite.h"
 
 /* Function Definitions */
 double maximum(const double x[4], int *idx)

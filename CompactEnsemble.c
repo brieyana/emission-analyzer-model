@@ -18,7 +18,6 @@
 #include "predict_emissions_types.h"
 #include "rt_nonfinite.h"
 #include "updateCache.h"
-#include "rt_nonfinite.h"
 
 /* Variable Definitions */
 static const char cv[15] = {'W', 'e', 'i', 'g', 'h', 't', 'e', 'd',

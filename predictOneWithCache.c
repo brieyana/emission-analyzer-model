@@ -15,7 +15,6 @@
 #include "predict_emissions_types.h"
 #include "rt_nonfinite.h"
 #include "updateCache.h"
-#include "rt_nonfinite.h"
 
 /* Function Definitions */
 void b_predictOneWithCache(const double X[3], double cachedScore[4],
