@@ -2,17 +2,16 @@
  * Academic License - for use in teaching, academic research, and meeting
  * course requirements at degree granting institutions only.  Not for
  * government, commercial, or other organizational use.
+ * File: updateCache.h
  *
- * updateCache.h
- *
- * Code generation for function 'updateCache'
- *
+ * MATLAB Coder version            : 24.2
+ * C/C++ source code generated on  : 02-Apr-2025 20:52:33
  */
 
 #ifndef UPDATECACHE_H
 #define UPDATECACHE_H
 
-/* Include files */
+/* Include Files */
 #include "rtwtypes.h"
 #include <stddef.h>
 #include <stdlib.h>
@@ -31,4 +30,8 @@ void updateCache(const double learnerscore[4], double cachedScore[4],
 #endif
 
 #endif
-/* End of code generation (updateCache.h) */
+/*
+ * File trailer for updateCache.h
+ *
+ * [EOF]
+ */

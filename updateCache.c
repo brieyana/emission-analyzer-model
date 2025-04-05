@@ -2,18 +2,27 @@
  * Academic License - for use in teaching, academic research, and meeting
  * course requirements at degree granting institutions only.  Not for
  * government, commercial, or other organizational use.
+ * File: updateCache.c
  *
- * updateCache.c
- *
- * Code generation for function 'updateCache'
- *
+ * MATLAB Coder version            : 24.2
+ * C/C++ source code generated on  : 02-Apr-2025 20:52:33
  */
 
-/* Include files */
+/* Include Files */
 #include "updateCache.h"
 #include "rt_nonfinite.h"
+#include <emmintrin.h>
 
 /* Function Definitions */
+/*
+ * Arguments    : const double learnerscore[4]
+ *                double cachedScore[4]
+ *                double *cachedWeights
+ *                boolean_T *cached
+ *                const char combinerName[15]
+ *                double score[4]
+ * Return Type  : void
+ */
 void updateCache(const double learnerscore[4], double cachedScore[4],
                  double *cachedWeights, boolean_T *cached,
                  const char combinerName[15], double score[4])
@@ -41,13 +50,16 @@ void updateCache(const double learnerscore[4], double cachedScore[4],
   score[2] = cachedScore[2];
   score[3] = cachedScore[3];
   if (!*cached) {
+    __m128d r;
     int kstr;
     boolean_T b_bool;
     *cached = true;
-    cachedScore[0] += learnerscore[0];
-    cachedScore[1] += learnerscore[1];
-    cachedScore[2] += learnerscore[2];
-    cachedScore[3] += learnerscore[3];
+    r = _mm_loadu_pd(&cachedScore[0]);
+    _mm_storeu_pd(&cachedScore[0],
+                  _mm_add_pd(r, _mm_loadu_pd(&learnerscore[0])));
+    r = _mm_loadu_pd(&cachedScore[2]);
+    _mm_storeu_pd(&cachedScore[2],
+                  _mm_add_pd(r, _mm_loadu_pd(&learnerscore[2])));
     (*cachedWeights)++;
     b_bool = false;
     kstr = 0;
@@ -66,10 +78,12 @@ void updateCache(const double learnerscore[4], double cachedScore[4],
       }
     } while (exitg1 == 0);
     if (b_bool) {
-      score[0] = cachedScore[0] / *cachedWeights;
-      score[1] = cachedScore[1] / *cachedWeights;
-      score[2] = cachedScore[2] / *cachedWeights;
-      score[3] = cachedScore[3] / *cachedWeights;
+      __m128d r1;
+      r = _mm_loadu_pd(&cachedScore[0]);
+      r1 = _mm_set1_pd(*cachedWeights);
+      _mm_storeu_pd(&score[0], _mm_div_pd(r, r1));
+      r = _mm_loadu_pd(&cachedScore[2]);
+      _mm_storeu_pd(&score[2], _mm_div_pd(r, r1));
     } else {
       score[0] = cachedScore[0];
       score[1] = cachedScore[1];
@@ -79,4 +93,8 @@ void updateCache(const double learnerscore[4], double cachedScore[4],
   }
 }
 
-/* End of code generation (updateCache.c) */
+/*
+ * File trailer for updateCache.c
+ *
+ * [EOF]
+ */

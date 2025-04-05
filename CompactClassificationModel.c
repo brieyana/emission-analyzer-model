@@ -2,26 +2,32 @@
  * Academic License - for use in teaching, academic research, and meeting
  * course requirements at degree granting institutions only.  Not for
  * government, commercial, or other organizational use.
+ * File: CompactClassificationModel.c
  *
- * CompactClassificationModel.c
- *
- * Code generation for function 'CompactClassificationModel'
- *
+ * MATLAB Coder version            : 24.2
+ * C/C++ source code generated on  : 02-Apr-2025 20:52:33
  */
 
-/* Include files */
+/* Include Files */
 #include "CompactClassificationModel.h"
 #include "minOrMax.h"
 #include "predict_emissions_data.h"
 #include "predict_emissions_types.h"
 #include "rt_nonfinite.h"
+#include "rt_nonfinite.h"
 
 /* Function Definitions */
-void c_CompactClassificationModel_ma(const int obj_ClassNamesLength[4],
-                                     const double obj_Prior[4],
-                                     const double scores[4],
-                                     cell_wrap_4 *labels)
+/*
+ * Arguments    : const int obj_ClassNamesLength[4]
+ *                const double obj_Prior[4]
+ *                const double scores[4]
+ * Return Type  : cell_wrap_4
+ */
+cell_wrap_4 c_CompactClassificationModel_ma(const int obj_ClassNamesLength[4],
+                                            const double obj_Prior[4],
+                                            const double scores[4])
 {
+  cell_wrap_4 labels;
   int i;
   int iindx;
   int k;
@@ -45,10 +51,10 @@ void c_CompactClassificationModel_ma(const int obj_ClassNamesLength[4],
   }
   maximum(obj_Prior, &iindx);
   k = obj_ClassNamesLength[iindx - 1];
-  labels->f1.size[0] = 1;
-  labels->f1.size[1] = k;
+  labels.f1.size[0] = 1;
+  labels.f1.size[1] = k;
   for (i = 0; i < k; i++) {
-    labels->f1.data[i] = cv1[(iindx + (i << 2)) - 1];
+    labels.f1.data[i] = cv1[(iindx + (i << 2)) - 1];
   }
   if (!y) {
     maximum(scores, &iindx);
@@ -60,12 +66,17 @@ void c_CompactClassificationModel_ma(const int obj_ClassNamesLength[4],
     if (iindx < 0) {
       iindx = 0;
     }
-    labels->f1.size[0] = 1;
-    labels->f1.size[1] = k;
+    labels.f1.size[0] = 1;
+    labels.f1.size[1] = k;
     for (i = 0; i < k; i++) {
-      labels->f1.data[i] = cv1[(iindx + (i << 2)) - 1];
+      labels.f1.data[i] = cv1[(iindx + (i << 2)) - 1];
     }
   }
+  return labels;
 }
 
-/* End of code generation (CompactClassificationModel.c) */
+/*
+ * File trailer for CompactClassificationModel.c
+ *
+ * [EOF]
+ */
