@@ -11,7 +11,6 @@
 /* Include Files */
 #include "updateCache.h"
 #include "rt_nonfinite.h"
-#include <emmintrin.h>
 
 /* Function Definitions */
 /*
@@ -45,24 +44,26 @@ void updateCache(const double learnerscore[4], double cachedScore[4],
       '~',    '\x7f'};
   static const char b_cv1[15] = {'w', 'e', 'i', 'g', 'h', 't', 'e', 'd',
                                  'a', 'v', 'e', 'r', 'a', 'g', 'e'};
+  // Copy cached score to output score
   score[0] = cachedScore[0];
   score[1] = cachedScore[1];
   score[2] = cachedScore[2];
   score[3] = cachedScore[3];
+
   if (!*cached) {
-    __m128d r;
-    int kstr;
-    boolean_T b_bool;
     *cached = true;
-    r = _mm_loadu_pd(&cachedScore[0]);
-    _mm_storeu_pd(&cachedScore[0],
-                  _mm_add_pd(r, _mm_loadu_pd(&learnerscore[0])));
-    r = _mm_loadu_pd(&cachedScore[2]);
-    _mm_storeu_pd(&cachedScore[2],
-                  _mm_add_pd(r, _mm_loadu_pd(&learnerscore[2])));
+
+    // Add learnerscore to cachedScore (scalar ops)
+    cachedScore[0] += learnerscore[0];
+    cachedScore[1] += learnerscore[1];
+    cachedScore[2] += learnerscore[2];
+    cachedScore[3] += learnerscore[3];
+
     (*cachedWeights)++;
-    b_bool = false;
-    kstr = 0;
+
+    // String comparison using b_cv and b_cv1
+    boolean_T b_bool = false;
+    int kstr = 0;
     int exitg1;
     do {
       exitg1 = 0;
@@ -77,13 +78,14 @@ void updateCache(const double learnerscore[4], double cachedScore[4],
         exitg1 = 1;
       }
     } while (exitg1 == 0);
+
     if (b_bool) {
-      __m128d r1;
-      r = _mm_loadu_pd(&cachedScore[0]);
-      r1 = _mm_set1_pd(*cachedWeights);
-      _mm_storeu_pd(&score[0], _mm_div_pd(r, r1));
-      r = _mm_loadu_pd(&cachedScore[2]);
-      _mm_storeu_pd(&score[2], _mm_div_pd(r, r1));
+      // Average the cached score
+      double invWeight = 1.0 / (*cachedWeights);
+      score[0] = cachedScore[0] * invWeight;
+      score[1] = cachedScore[1] * invWeight;
+      score[2] = cachedScore[2] * invWeight;
+      score[3] = cachedScore[3] * invWeight;
     } else {
       score[0] = cachedScore[0];
       score[1] = cachedScore[1];
