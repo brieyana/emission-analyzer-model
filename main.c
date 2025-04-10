@@ -93,14 +93,19 @@ int main(int argc, char **argv)
   cell_wrap_4 coLabel;
   cell_wrap_4 noxLabel;
   double coScores[4], noxScores[4];
-  char coClass[9], noxClass[9];
+  char coClass[10], noxClass[10];
 
   // Do the prediction
   predict_emissions(&inputRow, &noxLabel, noxScores, &coLabel, coScores);
 
   // Copy from label to class string with proper size
-  memcpy(coClass, coLabel.f1.data, coLabel.f1.size[1]);
-  memcpy(noxClass, noxLabel.f1.data, noxLabel.f1.size[1]);
+  int coLabelSize = coLabel.f1.size[1];
+  int noxLabelSize = noxLabel.f1.size[1];
+  memcpy(coClass, coLabel.f1.data, coLabelSize);
+  memcpy(noxClass, noxLabel.f1.data, noxLabelSize);
+  // Add null terminator to class strings
+  coClass[coLabelSize] = 0;
+  noxClass[noxLabelSize] = 0;
 
   printf(
       "{\"CO\": {\"Class\": \"%s\", \"Confidence\": {\"Low\": %lf, \"Moderate\": %lf, \"High\": %lf, \"Very High\": %lf}}, \
