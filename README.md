@@ -3,7 +3,7 @@
 This repository contains the core modeling workflow used to analyze and predict aircraft engine emissions, 
 including NOx and CO₂ output. Built in MATLAB, this system leverages Excel datasets, fine-tunes them through 
 statistical and machine learning techniques, and generates optimized C code for integration into the 
-companion application.
+frontend application.
 
 **App frontend repository**: [emission-analyzer-app](https://github.com/brieyana/emission-analyzer-app)
 
